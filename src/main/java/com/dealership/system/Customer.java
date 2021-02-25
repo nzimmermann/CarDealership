@@ -1,12 +1,9 @@
 package com.dealership.system;
 
-public class Employee extends Account{
+public class Customer extends Account{
 
     @Override
     public void displayAccountInfo() {
-        System.out.println();
+        
     }
-
-
-
 }
