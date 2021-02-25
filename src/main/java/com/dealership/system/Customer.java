@@ -4,6 +4,6 @@ public class Customer extends Account{
 
     @Override
     public void displayAccountInfo() {
-        
+
     }
 }
