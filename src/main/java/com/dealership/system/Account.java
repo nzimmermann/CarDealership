@@ -2,10 +2,16 @@ package com.dealership.system;
 
 public abstract class Account {
 
-    private String un;
-    private String pw;
-    private AccountType ac;
+    Account(String username, String password){
+        un = username;
+        pw = password;
+    }
 
-    public abstract void displayAccountInfo();
+    protected String un;
+    private String pw;
+    protected AccountType ac;
+
+    public abstract String[] getOptions();
+
 
 }

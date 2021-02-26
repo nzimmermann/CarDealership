@@ -2,47 +2,66 @@ package com.dealership.system;
 
 
 import com.dealership.ui.LoginMenu;
+import com.dealership.ui.Menu;
+import com.dealership.ui.TitleMenu;
 
 import java.util.Scanner;
 
 public class Driver {
 
-private static boolean checkCredentials(String u,String p){
-    return (u.length() > 0 && p.length() > 0);
-    //TODO: request user credentials verification in database
-}
+
+
 
     public static void main(String[] args) {
 
-        Scanner s = new Scanner(System.in);
-        LoginMenu login = new LoginMenu();
+        Scanner sc = new Scanner(System.in);
 
-        System.out.println("Welcome to The Dealership\n");
+        Menu ui;
+        ui = new TitleMenu(sc);
+        int user_choice;
 
+        //Begin ui
+        user_choice = userInterface(ui);
 
-        // Login screen and checking username/password
-        login.displayMenu();
-        while(true){
-            String username = login.promptUsername(s);
-            String password = login.promptPassword(s);
-
-            if( checkCredentials(username,password) ) {
-                System.out.println("You've been logged in!");
+        switch (user_choice){
+            case 1:
                 break;
-            } else {
-                System.out.println("Incorrect username or password... try again");
-            }
+            case 2:
+                break;
+            default:
+                break;
         }
-
-
-
-        while(true){
-
-        }
-
-
-
 
     }
 
+    public static int userInterface(Menu ui){
+        return 0;
+    }
+
 }
+
+
+//
+//    //String s = "just end it here";
+//    boolean B = true;
+//
+//        while(B){
+//                B = false;
+//
+//                break;
+//                }
+//                ui.displayMenu();
+//
+//                int i = 3;
+//                while(i > 0){
+//
+//                if(i-- == 1){
+//                ui = new LoginMenu();
+//                }
+//                }
+
+
+//LoginMenu login = new LoginMenu(sc);
+// Login screen and checking username/password
+//login.displayMenu();
+
