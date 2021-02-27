@@ -13,29 +13,47 @@ public class Driver {
 
 
     public static void main(String[] args) {
-
         Scanner sc = new Scanner(System.in);
 
-        Menu ui;
-        ui = new TitleMenu(sc);
-        int user_choice;
+        Menu ui = new TitleMenu(sc);
+        int user_choice = 0;
+        boolean staying = true;
+
 
         //Begin ui
-        user_choice = userInterface(ui);
+        while(staying) {
+            //user_choice = userInterface(ui,sc);
 
-        switch (user_choice){
-            case 1:
-                break;
-            case 2:
-                break;
-            default:
-                break;
+            switch (userInterface(ui,sc)){
+                case 1:
+                    ui = new LoginMenu();
+                    break;
+                case 2:
+                    //System.out.println();
+                    ui.setNotice("Needs implementing...\n");
+                    break;
+                default:
+                    ui.setNotice("Please enter a valid input");
+                    break;
+            }
+            System.out.print("\r\n\n\n\n");
         }
 
     }
 
-    public static int userInterface(Menu ui){
-        return 0;
+    private static int userInterface(Menu ui,Scanner s){
+        int choice = 0;
+
+        while(choice == 0){
+            choice = ui.displayMenu();
+        }
+
+        if(choice == 1 || choice == 2){
+            return choice;
+        } else {
+            return 0;
+        }
+
     }
 
 }
@@ -59,6 +77,7 @@ public class Driver {
 //                ui = new LoginMenu();
 //                }
 //                }
+//
 
 
 //LoginMenu login = new LoginMenu(sc);

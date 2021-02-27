@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public abstract class Menu {
 
-    public abstract void displayMenu();
-
     protected Scanner scan;
+    public abstract int displayMenu();
+    public abstract void setNotice(String s);
 }

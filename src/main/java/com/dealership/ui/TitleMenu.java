@@ -7,47 +7,36 @@ public class TitleMenu extends Menu{
     private static final String TEXT_GREEN = "\u001B[32m";
     private static final String TEXT_RESET = "\u001B[0m";
     private Scanner scan;
+    private String title, choices;
+    private int choice;
+    private String notice = "this is the notice";
 
-    private String title;
 
 
     public TitleMenu(Scanner s){
-        title = "" +
-                "Welcome To The Dealership" +
-                "\n" +
-                "\n" +
-                "Would you like to Login or Register for a Customer Account\n";
+        setNotice("");
         this.scan = s;
-    }
-
-
-    public String dynamicChoiceDisplay(){
-        return "    (1)Login    (2)Register    ";
-    }
-
-    private String selection(){
-        return "";
+        choices = "    (1)Login    (2)Register";
+        choice = 0;
+        System.out.println("Welcome To The Dealership\n");
     }
 
 
     @Override
-    public void displayMenu() {
-        System.out.print(title);
-
-        String inputString = "";
-        System.out.println(inputString.length());
-        char choice = 0;
-
-
-        System.out.print(dynamicChoiceDisplay());
-        while((inputString += scan.next()).length() <= 0 ){
-            choice = inputString.charAt(0);
-        }
-        System.out.print("\r");
-
-
+    public void setNotice(String s){
+        notice = s;
+        title = "\n" + notice + "\n" +
+                "Would you like to Login or Register for a Customer Account\n    (1)Login    (2)Register";
     }
 
+    @Override
+    public int displayMenu() {
+        System.out.println(title);
+
+        System.out.print(">>>> ");
+        choice = scan.nextInt();
+        return choice;
+    }
 
 }
 
