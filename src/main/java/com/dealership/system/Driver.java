@@ -3,6 +3,7 @@ package com.dealership.system;
 
 import com.dealership.ui.LoginMenu;
 import com.dealership.ui.Menu;
+import com.dealership.ui.RegisterMenu;
 import com.dealership.ui.TitleMenu;
 
 import java.util.Scanner;
@@ -26,20 +27,21 @@ public class Driver {
 
             switch (userInterface(ui,sc)){
                 case 1:
-                    ui = new LoginMenu();
+                    ui = new LoginMenu(sc);
                     break;
                 case 2:
                     //System.out.println();
-                    ui.setNotice("Needs implementing...\n");
+                    ui = new RegisterMenu(sc);
+                    //ui.setNotice("Needs implementing...\n");
                     break;
                 default:
                     ui.setNotice("Please enter a valid input");
                     break;
             }
-            System.out.print("\r\n\n\n\n");
+            //System.out.print("\n\n\n\n");
         }
-
     }
+
 
     private static int userInterface(Menu ui,Scanner s){
         int choice = 0;
@@ -53,9 +55,7 @@ public class Driver {
         } else {
             return 0;
         }
-
     }
-
 }
 
 
@@ -80,7 +80,7 @@ public class Driver {
 //
 
 
-//LoginMenu login = new LoginMenu(sc);
+// LoginMenu login = new LoginMenu(sc);
 // Login screen and checking username/password
-//login.displayMenu();
+// login.displayMenu();
 

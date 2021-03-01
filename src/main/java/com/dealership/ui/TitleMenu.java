@@ -13,9 +13,9 @@ public class TitleMenu extends Menu{
 
 
 
-    public TitleMenu(Scanner s){
+    public TitleMenu(Scanner sc){
         setNotice("");
-        this.scan = s;
+        this.scan = sc;
         choices = "    (1)Login    (2)Register";
         choice = 0;
         System.out.println("Welcome To The Dealership\n");
@@ -34,6 +34,7 @@ public class TitleMenu extends Menu{
         System.out.println(title);
 
         System.out.print(">>>> ");
+
         choice = scan.nextInt();
         return choice;
     }
