@@ -22,8 +22,18 @@ public class RegisterMenu extends LoginMenu {
 
         //Todo: check database to confirm username isn't already taken
         //Todo: add new user's info to the database
-        return 0;
+        boolean user_exists = false;
+
+        if(user_exists){
+            System.out.println("It looks like you already have an account.");
+        } else {
+            System.out.println("You have been registered! Now you can login.");
+        }
+
+        return 1;
     }
+
+
 
     @Override
     public void setNotice(String s) {

@@ -1,14 +1,12 @@
 package com.dealership.ui;
 
-public class OptionsMenu extends Menu{
+public abstract class OptionsMenu extends Menu{
 
     private String title;
     private String notice;
 
     @Override
-    public int displayMenu() {
-        return 0;
-    }
+    public abstract int displayMenu();
 
     @Override
     public void setNotice(String s) {

@@ -29,12 +29,13 @@ public class LoginMenu extends Menu {
 
             if( checkCredentials(username,password) ) {
                 System.out.println("You've been logged in!");
-                break;
+                return
             } else {
                 System.out.println("Incorrect username or password... try again");
                 attempts -= 1;
             }
         }
+        System.out.println("Attempted login too many times\nexiting dealership...\n");
         return 0;
     }
 
