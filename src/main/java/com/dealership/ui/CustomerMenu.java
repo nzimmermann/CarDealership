@@ -1,7 +1,11 @@
 package com.dealership.ui;
 
+import com.dealership.config.ConnectionUtil;
 import com.dealership.system.Customer;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Scanner;
 public class CustomerMenu extends OptionsMenu {
 
@@ -19,7 +23,7 @@ public class CustomerMenu extends OptionsMenu {
 
     @Override
     public int getMaxOptions() {
-        return 4;
+        return 5;
     }
 
     @Override
@@ -31,6 +35,26 @@ public class CustomerMenu extends OptionsMenu {
         return choice;
     }
 
-
+//    private static int viewLot(){
+//        String sql = "select * from lot";
+//        try{
+//            Statement st = ConnectionUtil.getInstance().getConnection().createStatement();
+//            ResultSet rs = st.executeQuery(sql);
+//            System.out.println("ID    Make    Model    year    price    available");
+//            while(rs.next()){
+//                for(int i = 1; i <= 5; i++ ){
+//                    System.out.print(rs.getObject(i) + "   ");
+//                }
+//                System.out.println("");
+//                //System.out.println(rs.getObject());
+//
+//            }
+//            return 1;
+//        } catch (SQLException e){
+//            e.printStackTrace();
+//            return -1;
+//        }
+//
+//    }
 
 }

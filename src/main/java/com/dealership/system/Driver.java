@@ -21,12 +21,12 @@ public class Driver {
 
         Menu ui = new TitleMenu(sc);
         int user_choice = 0;
-        boolean staying = true;
+        boolean interfacing = true;
         user_offset = 0;
 
 
         //Begin ui
-        while(staying) {
+        while(interfacing) {
 
             switch ((userInterface(ui)+user_offset)){
                 case 1: //go to login menu
@@ -44,6 +44,7 @@ public class Driver {
                     break;
 
                 case 11:
+                    break;
                 case 12:
                 case 13:
                 case 14:
@@ -56,14 +57,18 @@ public class Driver {
                     break;
 
                 case 21:
+                    int v = viewLot();
+                    break;
                 case 22:
+                    int offer = makeOffer(sc,ui.getName());
+                    break;
                 case 23:
                 case 24:
                     break;
 
                 case -1: //done with application
                     System.out.println("Exiting application...");
-                    staying = false;
+                    interfacing = false;
                     break;
                 default:
                     ui.setNotice("Please enter a valid input");
@@ -74,6 +79,9 @@ public class Driver {
     }
 
 
+    private static int manageOffers(){
+        return 0;
+    }
 
     private static int userInterface(Menu ui){
         int choice = 0;
@@ -95,6 +103,7 @@ public class Driver {
             return 0;
         }
         else if(choice == -1){  // exit
+            user_offset = 0;
             return choice;
         }
         else {
@@ -103,8 +112,62 @@ public class Driver {
 
     }
 
+    private static int makeOffer(Scanner scan, String customer_name){
+
+        String sql1 = "select id from users where username = '" + customer_name + "'";
+        int customer_id = 0;
+
+        try{
+            Statement st = ConnectionUtil.getInstance().getConnection().createStatement();
+            ResultSet rs = st.executeQuery(sql1);
+            if(rs.next()){
+                customer_id = (int) rs.getObject(1);
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+
+        System.out.print("Enter which car: ");
+        int car_id = scan.nextInt();
+
+        String sql2 = "";
+
+        String sql = "insert into offers values ('" + customer_id + "', " + "'" + car_id + "')";
+
+        try{
+            Statement st = ConnectionUtil.getInstance().getConnection().createStatement();
+            int i = st.executeUpdate(sql);
+
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
 
 
+        return 1;
+    }
 
+    private static int viewLot(){
+        String sql = "select * from lot";
+        try{
+            Statement st = ConnectionUtil.getInstance().getConnection().createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            System.out.println("ID\t\tMake\t\tModel\t\tyear\t\tprice\t\tavailable");
+            while(rs.next()){
+                for(int i = 1; i <= 6; i++ ){
+                    System.out.print(rs.getObject(i) + "\t\t");
+                    if(i==3){
+                        System.out.print("\t");
+                    }
+                }
+                System.out.println("");
+
+            }
+            return 1;
+        } catch (SQLException e){
+            e.printStackTrace();
+            return -1;
+        }
+
+    }
 
 }
