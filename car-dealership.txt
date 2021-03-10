@@ -2,11 +2,16 @@
 
 ## Description
 
-   The Car Dealership app is a console-based application that facilitates the purchasing of cars. An employee can add cars to the lot and manage offers for those cars, while a customer can view the cars on the lot and make offers.
+   The Car Dealership app is a console-based application that facilitates
+   the purchasing of cars. An employee can add cars to the lot and manage
+   offers for those cars, while a customer can view the cars on the lot
+   and make offers.
 	
 ## Purpose
 
-   We want to see that you can meet deadlines and that you can code. You are expected to complete the following requirements and give a 5 minute presentation of your project to our QC team.
+   We want to see that you can meet deadlines and that you can code.
+   You are expected to complete the following requirements and give
+   a 5 minute presentation of your project to our QC team.
 
 ## Requirements
 1. Functionality should reflect the below user stories.

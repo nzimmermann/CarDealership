@@ -11,7 +11,10 @@ public class TitleMenu extends Menu{
     private int choice;
     private String notice = "this is the notice";
 
-
+    @Override
+    public int getMaxOptions() {
+        return 2;
+    }
 
     public TitleMenu(Scanner sc){
         setNotice("");
@@ -30,11 +33,14 @@ public class TitleMenu extends Menu{
     }
 
     @Override
+    public String getName() {
+        return "";
+    }
+
+    @Override
     public int displayMenu() {
         System.out.println(title);
-
         System.out.print(">>>> ");
-
         choice = scan.nextInt();
         return choice;
     }

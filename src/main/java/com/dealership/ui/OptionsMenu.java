@@ -1,9 +1,15 @@
 package com.dealership.ui;
 
-public abstract class OptionsMenu extends Menu{
+import java.util.Scanner;
+
+public abstract class OptionsMenu extends LoginMenu{
 
     private String title;
     private String notice;
+
+    public OptionsMenu(Scanner sc) {
+        super(sc);
+    }
 
     @Override
     public abstract int displayMenu();

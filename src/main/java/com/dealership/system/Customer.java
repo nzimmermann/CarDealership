@@ -1,9 +1,12 @@
 package com.dealership.system;
 
+import static com.dealership.system.AccountType.CUSTOMER;
+
 public class Customer extends User {
 
-    Customer(String a, String b) {
+    public Customer(String a, String b) {
         super(a,b);
+        ac = CUSTOMER;
     }
 
     @Override
@@ -12,4 +15,6 @@ public class Customer extends User {
     }
 
     private String[] options;
+
+
 }

@@ -2,7 +2,7 @@ package com.dealership.system;
 
 import static com.dealership.system.AccountType.USER;
 
-// todo: Consider making 'User' an Interface and use lambda syntax for incoming users
+// todo: Consider making 'User' an Interface and use lambda syntax for incoming temp users
 
 public class User extends Account{
 
@@ -11,6 +11,9 @@ public class User extends Account{
         ac = USER;
     }
 
+    public AccountType getAc(){
+        return ac;
+    }
 
     @Override
     public String[] getOptions() {
