@@ -1,5 +1,11 @@
 package com.dealership.ui;
 
+import com.dealership.config.ConnectionUtil;
+import com.dealership.data.DealershipDAO;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Scanner;
 
 public class RegisterMenu extends LoginMenu {
@@ -25,18 +31,43 @@ public class RegisterMenu extends LoginMenu {
 
 
 
+
         boolean user_exists = false;
 
-        if(user_exists){
+        if(DealershipDAO.isRegisteredUser(username)){
             System.out.println("That account already exists...");
         } else {
-            System.out.println("You have been registered! Now you can login.");
+
+            try {
+                int nId = getNextId();
+                String sql = "insert into users values ('" +
+                        nId + "', '" + username + "', '" + password + "', " + 2 + ")";
+                Statement statement = ConnectionUtil.getInstance().getConnection().createStatement();
+                int i = statement.executeUpdate(sql);
+            }
+            catch (SQLException e) {
+                e.printStackTrace();
+                System.out.println("something went wrong");
+            }
+
         }
 
         return 1;
     }
 
 
+    public int getNextId(){
+        try {
+            String sql = "select * from getNextId()";
+            Statement statement = ConnectionUtil.getInstance().getConnection().createStatement();
+            ResultSet rs = statement.executeQuery(sql);
+            rs.next();
+            return (int) rs.getObject(1);
+        }
+        catch (SQLException e) {
+            return -1;
+        }
+    }
 
     @Override
     public void setNotice(String s) {
